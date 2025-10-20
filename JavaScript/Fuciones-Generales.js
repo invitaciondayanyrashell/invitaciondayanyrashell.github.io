@@ -53,29 +53,6 @@ function openGoogleCalendar() {
 
 calendarButton.addEventListener("click", openGoogleCalendar);
 
-// Selecciona todos los botones de las preguntas
-/*document.querySelectorAll("section button").forEach(button => {
-    button.addEventListener("click", () => {
-        // Verifica si ya existe un div de respuesta
-        let answerDiv = button.nextElementSibling;
-        
-        if (answerDiv && answerDiv.classList.contains("faq-answer")) {
-            // Alterna visibilidad
-            if (answerDiv.style.display === "block") {
-                answerDiv.style.display = "none";
-            } else {
-                answerDiv.style.display = "block";
-            }
-        } else {
-            // Crea el div de respuesta si no existe
-            answerDiv = document.createElement("div");
-            answerDiv.className = "faq-answer px-4 pb-4 text-wedding-blue-900";
-            answerDiv.style.display = "block";
-            answerDiv.textContent = "Aquí va la respuesta a la pregunta."; // Cambia según la pregunta
-            button.parentNode.appendChild(answerDiv);
-        }
-    });
-});*/
 
 const respuestas = [
     "Sí, habrá estacionamiento disponible en el lugar",
