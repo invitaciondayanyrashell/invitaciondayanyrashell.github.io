@@ -1,0 +1,53 @@
+/* Asegura la posición fija en la esquina inferior derecha */
+.fixed.bottom-6.right-6 {
+  position: fixed;
+  bottom: 24px; /* equivale a bottom-6 */
+  right: 24px;  /* equivale a right-6 */
+  z-index: 9999;
+}
+
+/* Estilo base del botón */
+.wave-button {
+  position: relative;
+  background-color: #000000 !important; /* negro */
+  color: #ffffff !important; /* blanco para el ícono */
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+/* Hover: zoom + sombra + tono más claro */
+.wave-button:hover {
+  transform: scale(1.15);
+  background-color: #1a1a1a !important; /* negro un poco más claro */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+}
+
+/* Onda blanca al hacer hover */
+.wave-button::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.5s ease, height 0.5s ease, opacity 0.5s ease;
+  opacity: 0;
+}
+
+.wave-button:hover::before {
+  width: 200%;
+  height: 200%;
+  opacity: 0;
+}
+
+/* Ícono más suave en hover */
+.wave-button svg {
+  transition: transform 0.3s ease;
+}
+
+.wave-button:hover svg {
+  transform: scale(1.1);
+}

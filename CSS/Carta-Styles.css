@@ -1,0 +1,233 @@
+/* --- Importación de fuentes --- */
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Roboto:wght@400&display=swap');
+
+/* --- Estilos generales --- */
+body {
+    margin: 0;
+    overflow: hidden;
+    font-family: 'Roboto', sans-serif;
+    background-color: #f2f7fb;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* --- Preloader --- */
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #d4af37; /* dorado */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 4s ease, transform 4s ease;
+}
+
+.preloader-logo {
+    width: 140px;
+    height: 140px;
+    animation: spinScale 2s linear infinite;
+}
+
+/* Giro + pequeño zoom */
+@keyframes spinScale {
+    0% { transform: rotate(0deg) scale(1); }
+    50% { transform: rotate(180deg) scale(1.05); }
+    100% { transform: rotate(360deg) scale(1); }
+}
+
+/* Fade-out del preloader */
+#preloader.fade-out {
+    opacity: 0;
+    transform: scale(0.8);
+    pointer-events: none; /* evita interacción mientras desaparece */
+}
+
+/* Contenido principal invisible hasta que termina el preloader */
+#mainContent {
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+#mainContent.visible {
+    opacity: 1;
+}
+
+/* --- Contenedor de invitación --- */
+.invitation-wrapper {
+    text-align: center;
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+.invitation-wrapper.visible {
+    opacity: 1;
+}
+
+/* --- Estilos del sobre --- */
+.envelope-mockup {
+    position: relative;
+    width: 350px;
+    height: 230px;
+    margin: 0 auto 30px auto;
+    background: linear-gradient(to bottom, #f3dc8e, #d4af37);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgb(255, 255, 255);
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    will-change: transform, box-shadow;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInSlideUp 0.8s ease-out forwards;
+    animation-delay: 0.2s;
+    transition: transform 0.6s cubic-bezier(0.25,0.46,0.45,0.94), box-shadow 0.6s cubic-bezier(0.25,0.46,0.45,0.94);
+}
+
+.envelope-mockup:hover {
+    transform: scale(1.03);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+}
+
+.envelope-flap-top-mock {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 0;
+    border-left: 175px solid transparent;
+    border-right: 175px solid transparent;
+    border-bottom: 70px solid #d0b355;
+    z-index: 1;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    will-change: transform;
+    transition: transform 0.3s ease-out;
+    transform-origin: top center;
+}
+
+.envelope-body-mock {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+}
+
+.envelope-logo {
+    max-width: 80%;
+    max-height: 60%;
+    object-fit: contain;
+}
+
+.envelope-open .envelope-flap-top-mock {
+    transform: rotateX(180deg);
+}
+
+/* --- Botón abrir invitación --- */
+.action-button {
+    background-color: #d4af37;
+    color: white;
+    border: none;
+    padding: 17px 45px;
+    border-radius: 35px;
+    cursor: pointer;
+    font-size: 1.2em;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
+    transition: transform 0.35s cubic-bezier(0.25,0.46,0.45,0.94),
+                box-shadow 0.35s cubic-bezier(0.25,0.46,0.45,0.94),
+                background-color 0.35s ease;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInSlideUp 0.8s ease-out forwards;
+    animation-delay: 0.4s;
+}
+
+.action-button:hover {
+    background-color: #b8860b;
+    transform: scale(1.12) rotateZ(-1deg);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.35), 0 0 15px rgba(85,145,210,0.5);
+}
+
+.action-button:active {
+    transform: scale(1.05) rotateZ(0deg);
+    box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+}
+
+/* --- Mensaje de estado --- */
+.status-message {
+    color: #8da1b3;
+    margin-top: 25px;
+    font-size: 0.95em;
+    font-weight: 400;
+    font-style: italic;
+    opacity: 0;
+    transform: translateY(10px);
+    animation: fadeInSlideUpMessage 0.5s ease-out forwards;
+}
+
+.hidden {
+    display: none;
+    animation: none !important;
+}
+
+/* --- Animaciones generales --- */
+@keyframes fadeInSlideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInSlideUpMessage {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+
+/*Nuevos cambios*/
+.guest-info {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #1b2a4e;
+    font-family: "Playfair Display", serif;
+}
+
+.guest-name {
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: #1b2a4e;
+    font-family: "Dancing Script", cursive; /* elegante y similar a la imagen */
+    margin-bottom: 0.5rem;
+}
+
+.guest-message {
+    font-size: 1rem;
+    color: #354a67;
+    margin-bottom: 1.2rem;
+    letter-spacing: 0.5px;
+}
+
+.guest-count {
+    font-size: 0.85rem;
+    color: #6c7a93;
+    margin-top: 1.2rem;
+}
+

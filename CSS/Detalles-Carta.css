@@ -1,0 +1,385 @@
+/* === Estilos para los números grandes === */
+.countdown-days {
+  font-size: 4rem;
+  /* tamaño del número de días */
+}
+
+.countdown-hours,
+.countdown-minutes,
+.countdown-seconds {
+  font-size: 1.8rem;
+  /* tamaño de los números pequeños */
+}
+
+/* === Estilos para los textos debajo de los números === */
+.countdown-days+.text-lg {
+  font-size: 1.2rem;
+  /* texto “Días Restantes” */
+}
+
+.countdown-hours+.text-xs,
+.countdown-minutes+.text-xs,
+.countdown-seconds+.text-xs {
+  font-size: 0.7rem;
+  /* texto “Horas”, “Minutos”, “Segundos” */
+}
+
+/* === (Opcional) Ajustes responsivos === */
+@media (max-width: 768px) {
+  .countdown-days {
+    font-size: 0.5rem;
+  }
+
+  .countdown-hours,
+  .countdown-minutes,
+  .countdown-seconds {
+    font-size: 0.8rem;
+  }
+
+  .countdown-days+.text-lg {
+    font-size: 0.8rem;
+  }
+
+  .countdown-hours+.text-xs,
+  .countdown-minutes+.text-xs,
+  .countdown-seconds+.text-xs {
+    font-size: 0.5rem;
+  }
+}
+
+
+/* ==== SECCIÓN CUENTA REGRESIVA ==== */
+.bg-wedding-blue-900 {
+  background-color: #0a0a0a !important;
+  /* negro semi oscuro */
+}
+
+.text-wedding-blue-800 {
+  color: #111111 !important;
+  /* tono negro suave */
+}
+
+.text-wedding-blue-900 {
+  color: #0d0d0d !important;
+  /* más oscuro para textos */
+}
+
+.bg-wedding-blue-600 {
+  background-color: #1a1a1a !important;
+  /* tono intermedio */
+}
+
+.bg-wedding-blue-700 {
+  background-color: #222222 !important;
+  /* un poco más claro para hover */
+}
+
+/* ==== ELEMENTOS DECORATIVOS ==== */
+.bg-vintage-cream {
+  background-color: #f9f7f3 !important;
+}
+
+.border-wedding-blue-300 {
+  border-color: #3d3d3d !important;
+  /* gris oscuro, antes azul claro */
+}
+
+/* ==== TIPOGRAFÍA ==== */
+.font-serif {
+  font-family: "Playfair Display", serif;
+}
+
+.font-semibold {
+  font-weight: 600;
+}
+
+/* ==== SOMBRAS Y EFECTOS ==== */
+.shadow-lg {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+}
+
+.hover\:shadow-xl:hover {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* ==== TRANSICIONES ==== */
+.transition-all {
+  transition: all 0.4s ease-in-out;
+}
+
+/* ==== ANIMACIONES ==== */
+.fade-in-section {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.fade-in-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ==== CÍRCULO DE PROGRESO ==== */
+.progress-circle {
+  stroke: #ffffff;
+  transition: stroke-dashoffset 1s ease-out;
+}
+
+.botones-centro {
+  display: flex;
+  flex-direction: column; /* Coloca los botones uno debajo del otro */
+  align-items: center; /* Centra los botones horizontalmente */
+  gap: 10px; /* Espaciado entre los botones */
+}
+/* ==== BOTÓN “AGREGAR AL CALENDARIO” ==== */
+.add-calendar-btn {
+
+  background-color: #ffffff;
+  color: #111111;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  transition: all 0.3s ease-in-out;
+  margin: 0 0 17px 0;
+
+}
+
+.add-calendar-btn:hover {
+  background-color: #f4f4f4;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+}
+/* ==== Botones de confirmacion ==== */
+.confirmBtn {
+  background-color: #ffffff;
+  color: #111111;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  transition: all 0.3s ease-in-out;
+  margin: 0 0 17px 0;
+  justify-content: center;
+  align-items: center;
+  width: 50vh;
+}
+
+.confirmBtn:hover {
+  background-color: #f4f4f4;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+}
+.ico-boton {
+  width: 24px;
+  height: 24px;
+}
+
+
+/* ==== IMÁGENES ==== */
+img {
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* ==== RESPONSIVE ==== */
+@media (max-width: 768px) {
+  .text-4xl {
+    font-size: 2rem;
+  }
+
+  .text-lg {
+    font-size: 1rem;
+  }
+
+  .w-80.h-80 {
+    width: 14rem;
+    height: 14rem;
+  }
+}
+
+
+/* Asegura el fondo oscuro */
+.bg-wedding-blue-900 {
+  background-color: #000;
+  /* o el tono azul oscuro que uses */
+}
+
+/* Círculo animado blanco */
+.progress-circle {
+  /*stroke-dasharray: 282.743; /* Circunferencia */
+  /*stroke-dashoffset: 282.743; /* Comienza invisible */
+  /*animation: circleFill 2s ease-out forwards;
+    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.5));*/
+  transition: stroke-dashoffset 1s linear;
+}
+
+/* Animación para rellenar el círculo */
+@keyframes circleFill {
+  0% {
+    stroke-dashoffset: 282.743;
+  }
+
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Fade-in general */
+.fade-in-section {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.fade-in-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Botón estilo limpio */
+.add-calendar-btn {
+  transition: all 0.3s ease;
+  width: 90%;           /* Se adapta al ancho del contenedor/pantalla */
+  max-width: 400px;     /* Evita que se hagan demasiado grandes */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 17px auto; /* Centrado y separación */
+}
+
+.add-calendar-btn:hover {
+  transform: scale(1.05);
+  background-color: #f9f5e8;
+}
+
+.confirmBtn {
+  transition: all 0.3s ease;
+  
+}
+.botones-centro {
+  
+  margin: 0 0 17px 0;
+}
+.confirmBtn:hover {
+  transform: scale(1.05);
+  background-color: #f9f5e8;
+
+}
+/* Texto principal */
+.countdown-days {
+  font-size: 4rem;
+  font-weight: 700;
+}
+
+/*Nuevos cambio*/
+
+/* Nombres de la pareja */
+#hero-section .font-script {
+  color: #D4AF37;
+  /* dorado elegante */
+  text-shadow: 1px 1px 4px rgba(212, 175, 55, 0.7);
+  /* brillo sutil */
+}
+
+/* Símbolo & */
+#hero-section .font-cursive {
+  color: #D4AF37;
+  text-shadow: 1px 1px 4px rgba(212, 175, 55, 0.7);
+}
+
+/* Texto invitación */
+#hero-section .font-roboto {
+  color: #D4AF37;
+}
+
+/* Fecha */
+#hero-section .font-handwriting,
+#hero-section .text-red-600,
+#hero-section .text-wedding-blue-500,
+#hero-section .text-wedding-blue-400 {
+  color: #D4AF37 !important;
+  /* fuerza dorado sobre cualquier azul/rojo */
+}
+
+/* Icono anillos */
+#hero-section img[alt="Wedding rings"] {
+  filter: sepia(1) saturate(5) hue-rotate(15deg) brightness(1.1);
+}
+
+
+/*Cambios de colores textos*/
+/* Colores dorados para textos */
+/*.text-wedding-blue-900 { color: #bfa04d !important; }*/
+/*.text-wedding-blue-800 { color: #c9b14a !important; }*/
+.text-wedding-blue-600 {
+  color: black !important;
+}
+
+.text-wedding-blue-400 {
+  color: #e6d16f !important;
+}
+
+.text-wedding-blue-300 {
+  color: #f0df91 !important;
+}
+
+
+/* Colores dorados para fondos de líneas */
+.bg-wedding-blue-300 {
+  background-color: #f0df91 !important;
+}
+
+.border-wedding-blue-400 {
+  border-color: #e6d16f !important;
+}
+
+/* Hover de enlaces */
+a.text-wedding-blue-600:hover {
+  color: #bfa04d !important;
+}
+
+
+section.py-4.px-4.relative h4,
+section.py-4.px-4.relative p {
+  color: #000000 !important;
+}
+
+
+/* Solo afecta a los círculos dentro de esta sección */
+section.py-4.px-4.relative .circle:nth-child(1) {
+  background-color: #ffffff !important;
+  /* blanco */
+  border: 2px solid #000000;
+  /* borde negro */
+}
+
+section.py-4.px-4.relative .circle:nth-child(2) {
+  background-color: #000000 !important;
+  /* negro */
+  border: 2px solid #000000;
+  /* borde negro */
+}
+
+
+
+
+
+/* Sección específica */
+section.text-2xl md:text-2xl font-light font-handwriting leading-relaxed mb-4 {
+  font-family: 'Playfair Display', sans-serif;
+  /* para párrafos legibles */
+}
+
+/* Comillas grandes */
+section.bg-wedding-blue-900.text-white .text-6xl {
+  font-family: 'Lora', serif;
+  /* elegante pero sin cursiva exagerada */
+}
+
+
+
+/*Boon de Asistencia*/
+.icono-boton {
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
+}
