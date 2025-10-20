@@ -57,6 +57,8 @@ calendarButton.addEventListener("click", openGoogleCalendar);
 const respuestas = [
     "Sí, habrá estacionamiento disponible en el lugar",
     "Sí, habrá estacionamiento disponible en el lugar",
+    "Sí, habrá estacionamiento disponible en el lugar",
+    "Sí, habrá estacionamiento disponible en el lugar",
     "En la entrada de la recepción alguien te indicará el número de tu mesa. También podrás encontrar tu mesa en la entrada según tu nombre. Las mesas fueron elegidas con anticipación, favor de no cambiar su ubicación.",
     "No, la boda es exclusiva para adultos",
     "La invitación especifica la cantidad de invitados que te corresponden."
