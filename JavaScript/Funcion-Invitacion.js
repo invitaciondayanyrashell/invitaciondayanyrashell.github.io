@@ -28,7 +28,7 @@ window.addEventListener('load', () => {
 });
 
 //mandar los parametros
-// Variables globales que podemos usar después
+// Variables globales
 let guestNombre = "";
 let guestCantidad = 1;
 
@@ -36,37 +36,37 @@ let guestCantidad = 1;
 function analizarParametros() {
     const params = new URLSearchParams(window.location.search);
 
-    // 1️⃣ Caso: Familia
-    if (params.has("Familia1") || params.has("Familia2")) {
-        const fam1 = params.get("Familia1") || "";
-        const fam2 = params.get("Familia2") || "";
+    // 1️⃣ Caso: Familias (F1, F2, C)
+    if (params.has("F1") || params.has("F2")) {
+        const f1 = params.get("F1") || "";
+        const f2 = params.get("F2") || "";
 
         const nombresFamilia = [];
-        if (fam1.trim() !== "") nombresFamilia.push(fam1);
-        if (fam2.trim() !== "") nombresFamilia.push(fam2);
+        if (f1.trim() !== "") nombresFamilia.push(f1);
+        if (f2.trim() !== "") nombresFamilia.push(f2);
 
         guestNombre = nombresFamilia.length > 0 ? `Familia ${nombresFamilia.join(" ")}` : "Familia";
-        guestCantidad = parseInt(params.get("Cantidad")) || nombresFamilia.length || 1;
+        guestCantidad = parseInt(params.get("C")) || nombresFamilia.length || 1;
     } 
-    // 2️⃣ Caso: Dos personas
-    else if (params.has("Persona1") || params.has("Persona2")) {
-        const p1 = params.get("Persona1") || "";
-        const p2 = params.get("Persona2") || "";
+    // 2️⃣ Caso: Persona individual (N, A, C)
+    else if (params.has("N") && params.has("A")) {
+        const n = params.get("N") || "";
+        const a = params.get("A") || "";
+
+        guestNombre = `${n} ${a}`.trim() || "Invitado";
+        guestCantidad = parseInt(params.get("C")) || 1;
+    }
+    // 3️⃣ Caso: Dos personas (P1, P2, C)
+    else if (params.has("P1") || params.has("P2")) {
+        const p1 = params.get("P1") || "";
+        const p2 = params.get("P2") || "";
 
         const nombresPersonas = [];
         if (p1.trim() !== "") nombresPersonas.push(p1);
         if (p2.trim() !== "") nombresPersonas.push(p2);
 
-        guestNombre = nombresPersonas.join(" ") || "Invitado";
-        guestCantidad = parseInt(params.get("Cantidad")) || nombresPersonas.length || 1;
-    }
-    // 3️⃣ Caso: Persona individual
-    else if (params.has("Nombre") && params.has("Apellido")) {
-        const nombre = params.get("Nombre") || "";
-        const apellido = params.get("Apellido") || "";
-
-        guestNombre = `${nombre} ${apellido}`.trim() || "Invitado";
-        guestCantidad = parseInt(params.get("Cantidad")) || 1;
+        guestNombre = nombresPersonas.join(" y ") || "Invitados";
+        guestCantidad = parseInt(params.get("C")) || nombresPersonas.length || 1;
     } 
     else {
         guestNombre = "Invitado";
@@ -74,10 +74,17 @@ function analizarParametros() {
     }
 }
 
-// Llamar a la función al cargar la página
+// Ejecutar al cargar la página
 window.addEventListener("DOMContentLoaded", () => {
     analizarParametros();
 
+    // 👇 Aquí puedes usar guestNombre y guestCantidad
+    console.log(`Nombre detectado: ${guestNombre}`);
+    console.log(`Cantidad: ${guestCantidad}`);
+
+    // Ejemplo: mostrar en el HTML
+    const nombreElemento = document.getElementById("guestName");
+    if (nombreElemento) nombreElemento.textContent = guestNombre;
 });
 
 

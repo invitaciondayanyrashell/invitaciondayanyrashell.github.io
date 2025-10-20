@@ -35,49 +35,52 @@ function updateInvitation() {
     let nameText = "";
     let countText = "";
 
-    // 1️⃣ Caso: Familia
-    if (params.has("Familia1") || params.has("Familia2")) {
-        const fam1 = params.get("Familia1") || "";
-        const fam2 = params.get("Familia2") || "";
+    // 1️⃣ Caso: Familias (F1, F2, C)
+    if (params.has("F1") || params.has("F2")) {
+        const f1 = params.get("F1") || "";
+        const f2 = params.get("F2") || "";
 
         const nombresFamilia = [];
-        if (fam1.trim() !== "") nombresFamilia.push(fam1);
-        if (fam2.trim() !== "") nombresFamilia.push(fam2);
+        if (f1.trim() !== "") nombresFamilia.push(f1);
+        if (f2.trim() !== "") nombresFamilia.push(f2);
 
         nameText = nombresFamilia.length > 0 ? `Familia ${nombresFamilia.join(" ")}` : "Familia";
     } 
-    // 2️⃣ Caso: Dos personas
-    else if (params.has("Persona1") || params.has("Persona2")) {
-        const p1 = params.get("Persona1") || "";
-        const p2 = params.get("Persona2") || "";
+    // 2️⃣ Caso: Dos personas (P1, P2, C)
+    else if (params.has("P1") || params.has("P2")) {
+        const p1 = params.get("P1") || "";
+        const p2 = params.get("P2") || "";
 
         const nombresPersonas = [];
         if (p1.trim() !== "") nombresPersonas.push(p1);
         if (p2.trim() !== "") nombresPersonas.push(p2);
 
-        nameText = nombresPersonas.length > 0 ? nombresPersonas.join(" & ") : "Invitado";
+        nameText = nombresPersonas.length > 0 ? nombresPersonas.join(" & ") : "Invitados";
     }
-    // 3️⃣ Caso: Persona individual
-    else if (params.has("Nombre") && params.has("Apellido")) {
-        const nombre = params.get("Nombre") || "";
-        const apellido = params.get("Apellido") || "";
-        nameText = `${nombre} ${apellido}`.trim();
-        if (nameText === "") nameText = "Invitado";
+    // 3️⃣ Caso: Persona individual (N, A, C)
+    else if (params.has("N") && params.has("A")) {
+        const n = params.get("N") || "";
+        const a = params.get("A") || "";
+        nameText = `${n} ${a}`.trim() || "Invitado";
     } 
+    // 4️⃣ Sin parámetros
     else {
         nameText = "Invitado";
     }
 
-    // Cantidad
-    const cantidad = params.has("Cantidad") ? parseInt(params.get("Cantidad")) : 1;
-    countText = cantidad === 1 ? "Invitación válida para 1 persona" : `Invitación válida para ${cantidad} personas`;
+    // Cantidad (C)
+    const cantidad = params.has("C") ? parseInt(params.get("C")) : 1;
+    countText = cantidad === 1 
+        ? "Invitación válida para 1 persona" 
+        : `Invitación válida para ${cantidad} personas`;
 
     // Actualizar HTML
-    dynamicName.textContent = nameText;
-    guestCount.textContent = countText;
+    if (dynamicName) dynamicName.textContent = nameText;
+    if (guestCount) guestCount.textContent = countText;
 }
 
 window.addEventListener("load", updateInvitation);
+
 
 
 
