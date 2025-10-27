@@ -71,7 +71,7 @@ function updateInvitation() {
     // Cantidad (C)
     const cantidad = params.has("C") ? parseInt(params.get("C")) : 1;
     countText = cantidad === 1 
-        ? "Invitación válida solo para usted" 
+        ? "Invitación válida para 1 persona" 
         : `Invitación válida para ${cantidad} personas`;
 
     // Actualizar HTML
